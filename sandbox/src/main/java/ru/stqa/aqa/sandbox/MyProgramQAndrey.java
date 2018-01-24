@@ -1,3 +1,5 @@
+package ru.stqa.aqa.sandbox;
+
 public class MyProgramQAndrey {
 
 	public static void main(String[] args) {
