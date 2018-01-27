@@ -1,6 +1,7 @@
 package ru.stqa.aqa.sandbox;
 
 public class Square {
+
     public double l;
 
     public Square (double l) {
