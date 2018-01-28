@@ -1,5 +1,7 @@
 package ru.stqa.aqa.sandbox;
 
+import java.text.DecimalFormat;
+
 public class Point {
 
     public double x1, y1;
@@ -13,7 +15,11 @@ public class Point {
     }
 
     public double distance() {
-        return Math.sqrt(Math.pow(x1 - x2, 2) + Math.pow(y1 - y2, 2));
+        double value = Math.sqrt(Math.pow(x1 - x2, 2) + Math.pow(y1 - y2, 2));
+        double format = Double.parseDouble(new DecimalFormat("00.00")
+                .format(value)
+                .replace(",", "."));
+        return format;
     }
 
 }
