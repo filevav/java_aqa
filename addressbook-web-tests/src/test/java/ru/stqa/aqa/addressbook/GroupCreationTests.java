@@ -15,7 +15,8 @@ public class GroupCreationTests {
 
     @BeforeMethod
     public void setUp() throws Exception {
-        wd = new FirefoxDriver(new FirefoxOptions().setLegacy(true));
+        System.setProperty("webdriver.gecko.driver","C:\\Tools\\geckodriver.exe");
+        wd = new FirefoxDriver();
         wd.manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
     }
 
