@@ -20,4 +20,12 @@ public class ContactHelper extends HelperBase {
     public void enterContactData() {
         click(By.name("submit"));
     }
+
+    public void editContact() {
+        click(By.cssSelector("#maintable > tbody > tr:nth-child(2) > td:nth-child(8) > a"));
+    }
+
+    public void updateContact() {
+        click(By.name("update"));
+    }
 }
