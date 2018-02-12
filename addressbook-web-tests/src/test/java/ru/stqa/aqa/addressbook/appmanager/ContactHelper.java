@@ -23,7 +23,7 @@ public class ContactHelper extends HelperBase {
     }
 
     public void editContact() {
-        click(By.cssSelector("#maintable > tbody > tr:nth-child(2) > td:nth-child(8) > a"));
+        click(By.cssSelector("#maintable > tbody > tr:nth-child(2) > td:nth-child(8) > a > img"));
     }
 
     public void updateContact() {

@@ -26,7 +26,7 @@ public class ApplicationManager {
 
     public void init() {
         if (Objects.equals(browser, BrowserType.FIREFOX)) {
-            System.setProperty("webdriver.gecko.driver","C:\\Tools\\geckodriver.exe");
+            //System.setProperty("webdriver.gecko.driver","C:\\Tools\\geckodriver.exe");
             wd = new FirefoxDriver();
         } else if (Objects.equals(browser, BrowserType.CHROME)) {
             wd = new ChromeDriver();
