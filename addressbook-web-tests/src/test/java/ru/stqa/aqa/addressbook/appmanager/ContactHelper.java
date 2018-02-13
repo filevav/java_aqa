@@ -1,8 +1,10 @@
 package ru.stqa.aqa.addressbook.appmanager;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.support.ui.Select;
+import org.testng.Assert;
 import ru.stqa.aqa.addressbook.model.ContactData;
 
 public class ContactHelper extends HelperBase {
@@ -12,10 +14,15 @@ public class ContactHelper extends HelperBase {
     }
 
 
-    public void fillContactForm(ContactData contactData) {
+    public void fillContactForm(ContactData contactData, boolean creation) {
         type(By.name("firstname"), contactData.getFirstName());
         type(By.name("lastname"), contactData.getLastName());
-        type(By.name("mobile"), contactData.getMobile());
+
+        if (creation) {
+            new Select(wd.findElement(By.name("new_group"))).selectByVisibleText(contactData.getGroup());
+        } else {
+            Assert.assertFalse(isElementPresent(By.name("new_group")));
+        }
     }
 
     public void enterContactData() {
@@ -23,7 +30,7 @@ public class ContactHelper extends HelperBase {
     }
 
     public void editContact() {
-        click(By.cssSelector("#maintable > tbody > tr:nth-child(2) > td:nth-child(8) > a > img"));
+        click(By.cssSelector("tr:nth-child(3) img[alt='Edit']"));
     }
 
     public void updateContact() {
@@ -31,6 +38,6 @@ public class ContactHelper extends HelperBase {
     }
 
     public void deleteContact() {
-        click(By.cssSelector("#content > form:nth-child(3) > input[type=\"submit\"]:nth-child(2)"));
+        click(By.cssSelector("input[type=\"submit\"]:nth-child(2)"));
     }
 }
