@@ -31,7 +31,7 @@ public class ContactHelper extends HelperBase {
     }
 
     public void initContactModification() {
-        click(By.cssSelector("tr:nth-child(3) img[alt='Edit']"));
+        click(By.cssSelector("tr:nth-child(2) img[alt='Edit']"));
     }
 
     public void submitContactModification() {
@@ -51,5 +51,14 @@ public class ContactHelper extends HelperBase {
             wd.switchTo().alert().accept();
         } catch (NoAlertPresentException e) {
         }
+    }
+
+    public boolean isThereAContact() {
+        return isElementPresent(By.cssSelector("#maintable > tbody > tr:nth-child(2) > td:nth-child(7) > a > img"));
+    }
+
+    public void createContact(ContactData group, boolean b) {
+        fillContactForm(group, b);
+        submitContactData();
     }
 }
