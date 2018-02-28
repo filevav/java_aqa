@@ -1,6 +1,7 @@
 package ru.stqa.aqa.addressbook.appmanager;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.NoAlertPresentException;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.Select;
@@ -25,19 +26,30 @@ public class ContactHelper extends HelperBase {
         }
     }
 
-    public void enterContactData() {
+    public void submitContactData() {
         click(By.name("submit"));
     }
 
-    public void editContact() {
+    public void initContactModification() {
         click(By.cssSelector("tr:nth-child(3) img[alt='Edit']"));
     }
 
-    public void updateContact() {
+    public void submitContactModification() {
         click(By.name("update"));
     }
 
     public void deleteContact() {
-        click(By.cssSelector("input[type=\"submit\"]:nth-child(2)"));
+        click(By.cssSelector("div.left:nth-child(8) > input:nth-child(1)"));
+    }
+
+    public void selectContact() {
+        click(By.name("selected[]"));
+    }
+
+    public void acceptAlert() {
+        try {
+            wd.switchTo().alert().accept();
+        } catch (NoAlertPresentException e) {
+        }
     }
 }
