@@ -61,4 +61,12 @@ public class ContactHelper extends HelperBase {
         fillContactForm(group, b);
         submitContactData();
     }
+
+    public int getContactCount() {
+        return wd.findElements(By.name("selected[]")).size();
+    }
+
+    public void gotoHomePage() {
+        click(By.cssSelector("#nav > ul > li:nth-child(1) > a"));
+    }
 }
