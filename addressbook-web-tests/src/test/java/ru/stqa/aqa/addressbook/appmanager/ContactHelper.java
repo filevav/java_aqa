@@ -1,12 +1,12 @@
 package ru.stqa.aqa.addressbook.appmanager;
 
-import org.openqa.selenium.By;
-import org.openqa.selenium.NoAlertPresentException;
-import org.openqa.selenium.NoSuchElementException;
-import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.*;
 import org.openqa.selenium.support.ui.Select;
 import org.testng.Assert;
 import ru.stqa.aqa.addressbook.model.ContactData;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class ContactHelper extends HelperBase {
 
@@ -30,8 +30,8 @@ public class ContactHelper extends HelperBase {
         click(By.name("submit"));
     }
 
-    public void initContactModification() {
-        click(By.cssSelector("tr:nth-child(2) img[alt='Edit']"));
+    public void initContactModification(int index) {
+        wd.findElements(By.cssSelector("img[alt='Edit']")).get(index).click();
     }
 
     public void submitContactModification() {
@@ -42,8 +42,8 @@ public class ContactHelper extends HelperBase {
         click(By.cssSelector("div.left:nth-child(8) > input:nth-child(1)"));
     }
 
-    public void selectContact() {
-        click(By.name("selected[]"));
+    public void selectContact(int index) {
+        wd.findElements(By.name("selected[]")).get(index).click();
     }
 
     public void acceptAlert() {
@@ -68,5 +68,16 @@ public class ContactHelper extends HelperBase {
 
     public void gotoHomePage() {
         click(By.cssSelector("#nav > ul > li:nth-child(1) > a"));
+    }
+
+    public List<ContactData> getContactList() {
+        List<ContactData> contacts = new ArrayList<ContactData>();
+        List<WebElement>elements = wd.findElements(By.cssSelector("#maintable > tbody > tr:nth-child(n) > td:nth-child(2)"));
+        for (WebElement element : elements) {
+            String lastname = element.getText();
+            ContactData contact = new ContactData(null, "lastname", null);
+            contacts.add(contact);
+        }
+        return contacts;
     }
 }
