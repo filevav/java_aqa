@@ -1,26 +1,31 @@
 package ru.stqa.aqa.addressbook.model;
 
 public class ContactData {
-    private final String id;
+    private int id;
     private final String firstname;
     private final String lastname;
     private final String mobile;
 
     public ContactData (String firstname, String lastname, String group) {
-        this.id = null;
+        this.id = 0;
         this.firstname = firstname;
         this.lastname = lastname;
         this.mobile = group;
+
     }
-    public ContactData (String id, String firstname, String lastname, String group) {
+    public ContactData (int id, String firstname, String lastname, String group) {
         this.id = id;
         this.firstname = firstname;
         this.lastname = lastname;
         this.mobile = group;
     }
 
-    public String getId() {
+    public int getId() {
         return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getFirstName() {
@@ -38,7 +43,8 @@ public class ContactData {
     @Override
     public String toString() {
         return "ContactData{" +
-                "id='" + id + '\'' +
+                "id=" + id +
+                ", lastname='" + lastname + '\'' +
                 '}';
     }
 
@@ -49,11 +55,14 @@ public class ContactData {
 
         ContactData that = (ContactData) o;
 
-        return id != null ? id.equals(that.id) : that.id == null;
+        if (id != that.id) return false;
+        return lastname != null ? lastname.equals(that.lastname) : that.lastname == null;
     }
 
     @Override
     public int hashCode() {
-        return id != null ? id.hashCode() : 0;
+        int result = id;
+        result = 31 * result + (lastname != null ? lastname.hashCode() : 0);
+        return result;
     }
 }
