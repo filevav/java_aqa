@@ -3,17 +3,16 @@ package ru.stqa.aqa.addressbook.tests;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import ru.stqa.aqa.addressbook.model.ContactData;
-import ru.stqa.aqa.addressbook.model.GroupData;
 
 import java.util.HashSet;
 import java.util.List;
 
 public class ContactCreationTests extends TestBase {
 
-    @Test
+    @Test (enabled = false)
     public void testContactCreation () {
         List<ContactData> before = app.getContactHelper().getContactList();
-        app.getNavigationHelper().gotoAddNewPage();
+        app.goTo().gotoAddNewPage();
         ContactData contact = new ContactData("TestFN", "TestLN", "test1");
         app.getContactHelper().createContact(contact, true);
         app.getContactHelper().gotoHomePage();

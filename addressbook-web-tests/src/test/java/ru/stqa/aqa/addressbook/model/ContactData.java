@@ -13,11 +13,11 @@ public class ContactData {
         this.mobile = group;
 
     }
-    public ContactData (int id, String firstname, String lastname, String group) {
+    public ContactData (int id, String firstname, String lastname, String mobile) {
         this.id = id;
         this.firstname = firstname;
         this.lastname = lastname;
-        this.mobile = group;
+        this.mobile = mobile;
     }
 
     public int getId() {

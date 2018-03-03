@@ -9,10 +9,10 @@ import java.util.List;
 
 public class ContactDeletionTests extends TestBase {
 
-    @Test
+    @Test (enabled = false)
     public void testContactDeletion() {
         if (! app.getContactHelper().isThereAContact()) {
-            app.getNavigationHelper().gotoAddNewPage();
+            app.goTo().gotoAddNewPage();
             app.getContactHelper().createContact(new ContactData("TestFN", "TestLN", "test1"), true);
             app.getContactHelper().gotoHomePage();
         }

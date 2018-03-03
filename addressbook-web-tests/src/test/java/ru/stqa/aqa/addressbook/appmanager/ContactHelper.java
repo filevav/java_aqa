@@ -72,6 +72,8 @@ public class ContactHelper extends HelperBase {
 
     public List<ContactData> getContactList() {
         List<ContactData> contacts = new ArrayList<ContactData>();
+        //List<WebElement> elements = wd.findElement(By.id("maintable")).findElements(By.cssSelector("tr:nth-child(n) > td:nth-child(2)"));
+        //List<WebElement> elements = wd.findElements(By.cssSelector("tr:nth-child(n) > td:nth-child(2)"));
         List<WebElement> elements = wd.findElement(By.id("maintable")).findElements(By.name("entry"));
         for (WebElement element : elements) {
             String lastname = element.getText();
