@@ -26,7 +26,7 @@ public class NavigationHelper extends HelperBase {
         click(By.linkText("home"));
     }
 
-    public void gotoAddNewPage() {
+    public void addNewPage() {
         click(By.linkText("add new"));
     }
 }
