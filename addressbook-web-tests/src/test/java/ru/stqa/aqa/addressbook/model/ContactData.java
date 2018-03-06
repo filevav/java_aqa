@@ -6,7 +6,7 @@ public class ContactData {
     private int id = Integer.MAX_VALUE;
     private String firstname;
     private String lastname;
-    private String mobile;
+    private String group;
 
     public ContactData withId(int id) {
         this.id = id;
@@ -23,8 +23,8 @@ public class ContactData {
         return this;
     }
 
-    public ContactData withMobile(String mobile) {
-        this.mobile = mobile;
+    public ContactData withGroup(String group) {
+        this.group = group;
         return this;
     }
 
@@ -41,7 +41,7 @@ public class ContactData {
     }
 
     public String getGroup() {
-        return mobile;
+        return group;
     }
 
     @Override
