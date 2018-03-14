@@ -4,8 +4,8 @@ import java.util.Objects;
 
 public class ContactData {
     private int id = Integer.MAX_VALUE;
-    private String firstname;
-    private String lastname;
+    private String firstName;
+    private String lastName;
     private String group;
 
     public ContactData withId(int id) {
@@ -13,13 +13,13 @@ public class ContactData {
         return this;
     }
 
-    public ContactData withFirstname(String firstname) {
-        this.firstname = firstname;
+    public ContactData withFirstName(String firstName) {
+        this.firstName = firstName;
         return this;
     }
 
-    public ContactData withLastname(String lastname) {
-        this.lastname = lastname;
+    public ContactData withLastName(String lastName) {
+        this.lastName = lastName;
         return this;
     }
 
@@ -33,11 +33,11 @@ public class ContactData {
     }
 
     public String getFirstName() {
-        return firstname;
+        return firstName;
     }
 
     public String getLastName() {
-        return lastname;
+        return lastName;
     }
 
     public String getGroup() {
@@ -48,7 +48,7 @@ public class ContactData {
     public String toString() {
         return "ContactData{" +
                 "id=" + id +
-                ", lastname='" + lastname + '\'' +
+                ", lastName='" + lastName + '\'' +
                 '}';
     }
 
@@ -57,13 +57,13 @@ public class ContactData {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         ContactData that = (ContactData) o;
-        return Objects.equals(lastname, that.lastname);
+        return id == that.id &&
+                Objects.equals(lastName, that.lastName);
     }
 
     @Override
     public int hashCode() {
 
-        return Objects.hash(lastname);
+        return Objects.hash(id, lastName);
     }
-
 }
