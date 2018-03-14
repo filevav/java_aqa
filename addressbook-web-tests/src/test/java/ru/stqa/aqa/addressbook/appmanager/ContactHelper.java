@@ -4,6 +4,8 @@ import org.openqa.selenium.*;
 import org.openqa.selenium.support.ui.Select;
 import org.testng.Assert;
 import ru.stqa.aqa.addressbook.model.ContactData;
+import ru.stqa.aqa.addressbook.model.Contacts;
+import ru.stqa.aqa.addressbook.model.Groups;
 
 import java.util.HashSet;
 import java.util.List;
@@ -89,8 +91,8 @@ public class ContactHelper extends HelperBase {
         click(By.cssSelector("#nav > ul > li:nth-child(1) > a"));
     }
 
-    public Set<ContactData> all() {
-        Set<ContactData> contacts = new HashSet<ContactData>();
+    public Contacts all() {
+        Contacts contacts = new Contacts();
         List<WebElement> elements = wd.findElements(By.name("entry"));
         for (WebElement element : elements) {
             List<WebElement> cells = element.findElements(By.tagName("td"));
