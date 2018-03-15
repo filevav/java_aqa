@@ -7,7 +7,6 @@ import ru.stqa.aqa.addressbook.model.Contacts;
 
 import static org.hamcrest.CoreMatchers.*;
 import static org.hamcrest.MatcherAssert.assertThat;
-import static org.testng.Assert.*;
 
 public class ContactModificationTests extends TestBase {
 
@@ -15,7 +14,7 @@ public class ContactModificationTests extends TestBase {
     public void ensurePreconditions() {
         if (app.contact().all().size() == 0) {
             app.goTo().addNewPage();
-            app.contact().create(new ContactData().withFirstName("TestFN").withLastName("TestLN"), true);
+            app.contact().create(new ContactData().withFirstName("TestFN").withLastName("TestLN").withHomePhone("111").withMobilePhone("222").withWorkPhone("333"), true);
         }
     }
 
