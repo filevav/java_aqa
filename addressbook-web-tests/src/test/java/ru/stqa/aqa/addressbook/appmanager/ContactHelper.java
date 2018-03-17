@@ -20,6 +20,7 @@ public class ContactHelper extends HelperBase {
     public void fillContactForm(ContactData contactData, boolean creation) {
         type(By.name("firstname"), contactData.getFirstName());
         type(By.name("lastname"), contactData.getLastName());
+        type(By.name("mobile"), contactData.getMobilePhone());
 
         if (creation) {
             if (contactData.getGroup() != null) {
@@ -43,7 +44,7 @@ public class ContactHelper extends HelperBase {
     }
 
     public void deleteContact() {
-        click(By.cssSelector("div.left:nth-child(8) > input:nth-child(1)"));
+        click(By.cssSelector("input[value='Delete']"));
     }
 
     public void selectContactById(int id) {
@@ -101,20 +102,17 @@ public class ContactHelper extends HelperBase {
             return new Contacts(contactCache);
         }
         contactCache = new Contacts();
-        List<WebElement> elements = wd.findElements(By.name("entry"));
+        List<WebElement> elements = wd.findElements(By.cssSelector("#maintable tr[name='entry']"));
         for (WebElement element : elements) {
-            List<WebElement> cells = element.findElements(By.tagName("td"));
-            int id = Integer.parseInt(cells.get(0).findElement(By.tagName("input")).getAttribute("value"));
-            String lastName = cells.get(1).getText();
-            String firstName = cells.get(2).getText();
-            String[] phones = cells.get(5).getText().split("\n");
+            int id = Integer.parseInt(element.findElement(By.tagName("input")).getAttribute("value"));
+            String lastName = element.findElements(By.cssSelector("td")).get(1).getText();
+            String firstName = element.findElements(By.cssSelector("td")).get(2).getText();
+            String mobile = element.findElements(By.cssSelector("td")).get(5).getText();
             contactCache.add(new ContactData()
                     .withId(id)
                     .withFirstName(firstName)
                     .withLastName(lastName)
-                    .withHomePhone(phones[0])
-                    .withMobilePhone(phones[1])
-                    .withWorkPhone(phones[2])
+                    .withMobilePhone(mobile)
                     .withGroup(null));
         }
         return new Contacts(contactCache);
@@ -158,13 +156,13 @@ public class ContactHelper extends HelperBase {
     }
 
     private void initContactModificationById(int id) {
-        WebElement checkbox = wd.findElement(By.cssSelector(String.format("input[value='%s']", id)));
-        WebElement row = checkbox.findElement(By.xpath("./../.."));
-        List<WebElement> cells = row.findElements(By.tagName("td"));
-        cells.get(7).findElement(By.tagName("a")).click();
+        //WebElement checkbox = wd.findElement(By.cssSelector(String.format("input[value='%s']", id)));
+        //WebElement row = checkbox.findElement(By.xpath("./../.."));
+        //List<WebElement> cells = row.findElements(By.tagName("td"));
+        //cells.get(7).findElement(By.tagName("a")).click();
 
         //wd.findElement(By.xpath(String.format("//input[@value='%s']/../../td[8]/a", id))).click();
         //wd.findElement(By.xpath(String.format("//tr[.//input[@value='%s']]/td[8]/a", id))).click();
-        //wd.findElement(By.cssSelector(String.format("a[href='edit.php?id=%s']", id))).click();
+        wd.findElement(By.cssSelector(String.format("a[href='edit.php?id=%s']", id))).click();
     }
 }
