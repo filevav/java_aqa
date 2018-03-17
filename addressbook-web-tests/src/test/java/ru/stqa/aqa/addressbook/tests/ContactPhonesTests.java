@@ -1,5 +1,6 @@
 package ru.stqa.aqa.addressbook.tests;
 
+import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import ru.stqa.aqa.addressbook.model.ContactData;
 
@@ -10,6 +11,18 @@ import static org.hamcrest.CoreMatchers.*;
 import static org.hamcrest.MatcherAssert.*;
 
 public class ContactPhonesTests extends TestBase {
+
+    @BeforeMethod
+    public void ensurePreconditions() {
+        if (app.contact().all().size() == 0) {
+            app.goTo().addNewPage();
+            app.contact().create(new ContactData()
+                    .withFirstName("TestFN")
+                    .withLastName("TestLN")
+                    .withMobilePhone("1234")
+                    .withGroup(null), true);
+        }
+    }
 
     @Test
     public void testContactPhones() {

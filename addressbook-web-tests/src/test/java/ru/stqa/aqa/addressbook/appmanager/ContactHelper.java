@@ -21,6 +21,8 @@ public class ContactHelper extends HelperBase {
         type(By.name("firstname"), contactData.getFirstName());
         type(By.name("lastname"), contactData.getLastName());
         type(By.name("mobile"), contactData.getMobilePhone());
+        type(By.name("address"), contactData.getAddress());
+
 
         if (creation) {
             if (contactData.getGroup() != null) {
@@ -108,11 +110,13 @@ public class ContactHelper extends HelperBase {
             String lastName = element.findElements(By.cssSelector("td")).get(1).getText();
             String firstName = element.findElements(By.cssSelector("td")).get(2).getText();
             String mobile = element.findElements(By.cssSelector("td")).get(5).getText();
+            String address = element.findElements(By.cssSelector("td")).get(3).getText();
             contactCache.add(new ContactData()
                     .withId(id)
                     .withFirstName(firstName)
                     .withLastName(lastName)
                     .withMobilePhone(mobile)
+                    .withAddress(address)
                     .withGroup(null));
         }
         return new Contacts(contactCache);
