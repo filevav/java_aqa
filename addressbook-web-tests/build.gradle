@@ -6,7 +6,8 @@ repositories {
 
 dependencies {
     compile 'org.testng:testng:6.13.1'
-    compile 'org.seleniumhq.selenium:selenium-java:3.8.1'
+  //compile 'org.seleniumhq.selenium:selenium-java:3.8.1'
+    compile 'org.seleniumhq.selenium:selenium-java:3.11.0'
     compile 'org.hamcrest:java-hamcrest:2.0.0.0'
     compile 'com.beust:jcommander:1.72'
     compile group: 'com.thoughtworks.xstream', name: 'xstream', version: '1.4.10'
@@ -17,10 +18,22 @@ task testGroups (type: Test) {
     useTestNG {
         suites 'src/test/resources/testng-groups.xml'
     }
+    if (project.hasProperty('browser')) {
+        systemProperty 'browser', "${browser}"
+    }
+    if (project.hasProperty('target')) {
+        systemProperty 'target', "${target}"
+    }
 }
 
 task testContacts (type: Test) {
     useTestNG {
         suites 'src/test/resources/testng-contacts.xml'
+    }
+    if (project.hasProperty('browser')) {
+        systemProperty 'browser', "${browser}"
+    }
+    if (project.hasProperty('target')) {
+        systemProperty 'target', "${target}"
     }
 }
