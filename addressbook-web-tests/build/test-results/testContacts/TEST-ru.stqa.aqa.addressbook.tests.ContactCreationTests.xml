@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="ru.stqa.aqa.addressbook.tests.ContactCreationTests" tests="2" skipped="0" failures="0" errors="0" timestamp="2018-03-18T10:23:10" hostname="Lenovo-PC" time="10.151">
+<testsuite name="ru.stqa.aqa.addressbook.tests.ContactCreationTests" tests="2" skipped="0" failures="0" errors="0" timestamp="2018-03-18T08:41:17" hostname="Lenovo-PC" time="7.184">
   <properties/>
-  <testcase name="testBadContactCreation" classname="ru.stqa.aqa.addressbook.tests.ContactCreationTests" time="5.963"/>
-  <testcase name="testContactCreation" classname="ru.stqa.aqa.addressbook.tests.ContactCreationTests" time="4.185"/>
+  <testcase name="testBadContactCreation" classname="ru.stqa.aqa.addressbook.tests.ContactCreationTests" time="4.036"/>
+  <testcase name="testContactCreation" classname="ru.stqa.aqa.addressbook.tests.ContactCreationTests" time="3.147"/>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>

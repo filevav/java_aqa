@@ -6,8 +6,7 @@ import ru.stqa.aqa.addressbook.appmanager.ApplicationManager;
 
 public class TestBase {
 
-    protected static final ApplicationManager app
-            = new ApplicationManager(System.getProperty("browser", org.openqa.selenium.remote.BrowserType.CHROME));
+    protected static final ApplicationManager app = new ApplicationManager(org.openqa.selenium.remote.BrowserType.CHROME);
 
     @BeforeSuite
     public void setUp() throws Exception {
@@ -18,4 +17,5 @@ public class TestBase {
     public void tearDown() {
         app.stop();
     }
+
 }
