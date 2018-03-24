@@ -1,3 +1,23 @@
-GenFN 0;GenLN 0;80661876180;ul. Pukina, 0
-GenFN 1;GenLN 1;80661876181;ul. Pukina, 1
-GenFN 2;GenLN 2;80661876182;ul. Pukina, 2
+<list>
+  <ru.stqa.aqa.addressbook.model.ContactData>
+    <id>2147483647</id>
+    <firstName>GenFN 0</firstName>
+    <lastName>GenLN 0</lastName>
+    <mobile>80661876180</mobile>
+    <address>ul. Pukina, 0</address>
+  </ru.stqa.aqa.addressbook.model.ContactData>
+  <ru.stqa.aqa.addressbook.model.ContactData>
+    <id>2147483647</id>
+    <firstName>GenFN 1</firstName>
+    <lastName>GenLN 1</lastName>
+    <mobile>80661876181</mobile>
+    <address>ul. Pukina, 1</address>
+  </ru.stqa.aqa.addressbook.model.ContactData>
+  <ru.stqa.aqa.addressbook.model.ContactData>
+    <id>2147483647</id>
+    <firstName>GenFN 2</firstName>
+    <lastName>GenLN 2</lastName>
+    <mobile>80661876182</mobile>
+    <address>ul. Pukina, 2</address>
+  </ru.stqa.aqa.addressbook.model.ContactData>
+</list>

@@ -1,0 +1,20 @@
+<list>
+  <contact>
+    <firstName>GenFN 0</firstName>
+    <lastName>GenLN 0</lastName>
+    <mobile>80661876180</mobile>
+    <address>ul. Street, 0</address>
+  </contact>
+  <contact>
+    <firstName>GenFN 1</firstName>
+    <lastName>GenLN 1</lastName>
+    <mobile>80661876181</mobile>
+    <address>ul. Street, 1</address>
+  </contact>
+  <contact>
+    <firstName>GenFN 2</firstName>
+    <lastName>GenLN 2</lastName>
+    <mobile>80661876182</mobile>
+    <address>ul. Street, 2</address>
+  </contact>
+</list>

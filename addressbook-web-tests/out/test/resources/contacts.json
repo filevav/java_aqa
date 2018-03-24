@@ -1,0 +1,20 @@
+[
+  {
+    "firstName": "GenFN 0",
+    "lastName": "GenLN 0",
+    "mobile": "80661876180",
+    "address": "ul. Street, 0"
+  },
+  {
+    "firstName": "GenFN 1",
+    "lastName": "GenLN 1",
+    "mobile": "80661876181",
+    "address": "ul. Street, 1"
+  },
+  {
+    "firstName": "GenFN 2",
+    "lastName": "GenLN 2",
+    "mobile": "80661876182",
+    "address": "ul. Street, 2"
+  }
+]
