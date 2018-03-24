@@ -43,7 +43,7 @@ public class ContactDataGenerator {
     private void save(List<ContactData> contacts, File file) throws IOException {
         Writer writer = new FileWriter(file);
         for (ContactData contact : contacts) {
-            writer.write(String.format("%s;%s;%s\n", contact.getFirstName(), contact.getLastName(), contact.getMobilePhone()));
+            writer.write(String.format("%s;%s;%s;%s\n", contact.getFirstName(), contact.getLastName(), contact.getMobilePhone(), contact.getAddress()));
         }
         writer.close();
     }
@@ -54,7 +54,8 @@ public class ContactDataGenerator {
             contacts.add(new ContactData()
                     .withFirstName(String.format("GenFN %s", i))
                     .withLastName(String.format("GenLN %s", i))
-                    .withMobilePhone(String.format("8066187618%s", i)));
+                    .withMobilePhone(String.format("8066187618%s", i))
+                    .withAddress(String.format("ul. Pukina, %s", i)));
         }
         return contacts;
     }
