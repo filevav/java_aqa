@@ -67,6 +67,5 @@ public class ContactCreationTests extends TestBase {
         File photo = new File("src/test/resources/nightlights.jpeg");
         System.out.println(currentDir.getAbsolutePath());
         System.out.println(photo.exists());
-
     }
 }
